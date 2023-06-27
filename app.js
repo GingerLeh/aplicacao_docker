@@ -12,7 +12,6 @@ const connection = mysql.createConnection({
 
 app.use(express.json());
 
-// Rota para criar tabela
 app.get('/criar-tabela', (req, res) => {
   connection.connect((error) => {
     if (error) {
@@ -43,7 +42,6 @@ app.get('/criar-tabela', (req, res) => {
   });
 });
 
-// Rota para inserir um funcionário na tabela
 app.post('/inserir-funcionario', (req, res) => {
   const funcionario = {
     nome: req.body.nome,
@@ -64,7 +62,6 @@ app.post('/inserir-funcionario', (req, res) => {
   });
 });
 
-// Rota para exibir os funcionários da tabela
 app.get('/funcionarios', (req, res) => {
   const query = 'SELECT * FROM funcionarios';
 
